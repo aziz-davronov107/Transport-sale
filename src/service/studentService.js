@@ -1,20 +1,20 @@
-import studetModel from "../models/studetModel.js";
+import studentModel from "../models/studentModel.js";
 
-export class StudetsService{
-    static async createStudet(data){
-        let newstudet = await studetModel.create(data);
+export class StudentsService{
+    static async createStudent(data){
+        let newstudet = await studentModel.create(data);
         return newstudet;
     }
     static async get_all(){
-        let studets = await studetModel.find();
+        let studets = await studentModel.find();
         return studets;
     }
     static async update(id,data){
-        let newstudet = await studetModel.findByIdAndUpdate(id,{$set:data},{new:true});
+        let newstudet = await studentModel.findByIdAndUpdate(id,{$set:data},{new:true});
         return newstudet;
     }
     static async delete(id){
-        let oldstudet = await studetModel.findByIdAndDelete(id);
+        let oldstudet = await studentModel.findByIdAndDelete(id);
         return oldstudet;
     }
 }

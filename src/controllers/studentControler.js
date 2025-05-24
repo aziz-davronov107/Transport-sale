@@ -1,4 +1,4 @@
-import { StudentsService } from "../service/studentServise.js";
+import { StudentsService } from "../service/studentService.js";
 
 export class StudentsController{
     static async create(req,res,next){
