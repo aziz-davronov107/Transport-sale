@@ -10,10 +10,8 @@ export default (req,res,next) => {
         }
         if (req.path == "/login"){
             let {error,value} = UsersSchema.login.validate(req.body);
-            console.log(value,"yoq");
             
             if (error) throw new CustomError(error.details[0].message,400);
-            console.log("ishladi");
         }
         next();
    } catch (error) {

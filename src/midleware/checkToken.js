@@ -6,7 +6,9 @@ export default async (req, res, next) => {
     try {
         let { token } = req.headers
         if (!token) throw new CustomError("Token is required", 404);
-        let { userIp, userAgent, user_id } = JWT.verify(token)
+        let { userIp, userAgent, user_id } = JWT.verif(token)
+
+
         if (userIp != req.ip || userAgent != req.headers['user-agent']) throw new CustomError("Sizga ruxsat yoq!", 403);
 
         let user = await userModel.findById(user_id)
@@ -14,12 +16,14 @@ export default async (req, res, next) => {
             throw new CustomError("User not found", 404);
         }
         req.user = user
+        next()
     } catch (error) {
         if (error.name == "TokenExpiredError") {
-            next(new CustomError("Token expire!", 404))
+            return next(new CustomError("Token expire!", 404))
+
         }
         if (error.name == "JsonWebTokenError") {
-            next(new CustomError("Invalid Token!", 400))
+            return next(new CustomError("Invalid Token!", 400))
         }
         next(error)
     }

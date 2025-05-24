@@ -10,5 +10,7 @@ let UsersRouter = Router();
 UsersRouter
     .post("/register",validation,Users.register)
     .post("/login",validation,Users.login)
+    .get("/getUsers",Users.getUsers)
+    .put("/addAdmin:id",checkToken,secondCheck,Users.is_Admin)
     .post("permission",checkToken,secondCheck,Users.is_permisson)
 export default UsersRouter

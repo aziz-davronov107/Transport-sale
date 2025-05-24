@@ -7,7 +7,7 @@ const expiresInAC = process.env.ACCESS_TIME
 const expiresInRF = process.env.REFRESH_TIME
 
 export default {
-    sign: payload => jwt.sign({ user_id: payload._id, userIp: payload.ip, userAgent: payload.headers}, secretKey, { expiresIn: expiresInAC }),
-    signRF: payload => jwt.sign({ user_id: payload._id, userIp: payload.ip, userAgent: payload.headers}, secretKey, { expiresIn: expiresInRF }),
+    sign: payload => jwt.sign({ user_id: payload._id, userIp: payload.ip, userAgent: payload.userAgent }, secretKey, { expiresIn: expiresInAC }),
+    signRF: payload => jwt.sign({ user_id: payload._id, userIp: payload.ip, userAgent: payload.userAgent }, secretKey, { expiresIn: expiresInRF }),
     verif: token => jwt.verify(token, secretKey)
 }
