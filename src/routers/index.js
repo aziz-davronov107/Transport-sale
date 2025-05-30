@@ -1,18 +1,21 @@
-import BranchRouter from "./branchsRouters.js";
-import CourseRouter from "./coursesRouters.js";
-import GroupRouter from "./groupsRouters.js";
-import StudentRouter from "./students.js";
-import UsersRouters from "./UsersRouters.js";
+import adminPemissionRouter from "./adminPermission.js";
+import adminRouter from "./adminRouter.js";
+import branchRouter from "./branchRouter.js";
+import staffPemissionRouter from "./staffPermissio.js";
+import staffRouter from "./staffRouters.js";
+import transportRouter from "./transport.js";
 
 
 
-let routers = ()=>{
+
+let routers = () => {
     return [
-        {url: "Authorisation",func: UsersRouters},
-        {url: "Branchs",func: BranchRouter},
-        {url: "Courses",func: CourseRouter},
-        {url: "Groups",func: GroupRouter},
-        {url: "Students",func: StudentRouter}
+        { url: "Staff", func: staffRouter },
+        { url: "Branch", func: branchRouter },
+        { url: "Transport", func: transportRouter },
+        { url: "Admin", func: adminRouter },
+        { url: "StaffPermission", func: staffPemissionRouter },
+        { url: "AdminPermission", func: adminPemissionRouter }
     ]
 };
 

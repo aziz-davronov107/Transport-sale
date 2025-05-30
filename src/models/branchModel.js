@@ -1,10 +1,10 @@
-import { Schema, model } from "mongoose";
+import { Schema,model } from "mongoose";
 
-const branchSchema = new Schema({
-  name: { type: String, required: true },
-  address: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
-},{statics:true});
+let branchSchema = new Schema({
+    name: {type: String, unique: true},
+    address_id: {type: Schema.Types.ObjectId, ref: "Addres"}
+},{timestamps: true,strict: true})
 
-const branchModel = model("Branch", branchSchema);
-export default branchModel;
+let branchModel = model("Branch",branchSchema);
+
+export default branchModel

@@ -1,6 +1,6 @@
 import JWT from "../utils/jwt.js"
 import { CustomError } from "../CustomError/customError.js";
-import userModel from "../models/usersModel.js";
+import staffModel from "../models/staffModel.js";
 
 export default async (req, res, next) => {
     try {
@@ -11,11 +11,11 @@ export default async (req, res, next) => {
 
         if (userIp != req.ip || userAgent != req.headers['user-agent']) throw new CustomError("Sizga ruxsat yoq!", 403);
 
-        let user = await userModel.findById(user_id)
-        if (!user) {
-            throw new CustomError("User not found", 404);
+        let staff = await staffModel.findById(user_id)
+        if (!staff) {
+            throw new CustomError("Staff not found", 404);
         }
-        req.user = user
+        req.staff = staff
         next()
     } catch (error) {
         if (error.name == "TokenExpiredError") {
