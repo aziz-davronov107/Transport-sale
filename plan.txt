@@ -1,0 +1,13 @@
+ {"_id": "6835e19fa9fe6b8facfa34b2", "name": "Toshkent", "__v": 0},
+ {"_id": "6835e19fa9fe6b8facfa34b3", "name": "Samarqand", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b6", "name": "Andijon", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b7", "name": "Namangan", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b8", "name": "Qarshi", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b9", "name": "Navoiy", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34ba", "name": "Xorazm", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34bb", "name": "Guliston", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34bc", "name": "Jizzax", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34bd", "name": "Termiz", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34be", "name": "Nukus", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b4", "name": "Buxoro", "__v": 0},
+    {"_id": "6835e19fa9fe6b8facfa34b5", "name": "Farg‘ona", "__v": 0}

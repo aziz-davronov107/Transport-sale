@@ -13,28 +13,31 @@ app.use(express.json());
 
 await connectDB();
 app.use(fileUpload())
-// app.post("/", async (req, res) => {
-//     const viloyatlar = [
-//         "Toshkent",
-//         "Andijon",
-//         "Namangan",
-//         "Fargʻona",
-//         "Samarqand",
-//         "Buxoro",
-//         "Navoiy",
-//         "Xorazm",
-//         "Surxondaryo",
-//         "Qashqadaryo",
-//         "Jizzax",
-//         "Sirdaryo",
-//         "Qoraqalpogʻiston"
-//     ];
+app.get("/", async (req, res) => {
+    const viloyatlar = [
+        "Toshkent",
+        "Andijon",
+        "Namangan",
+        "Fargʻona",
+        "Samarqand",
+        "Buxoro",
+        "Navoiy",
+        "Xorazm",
+        "Surxondaryo",
+        "Qashqadaryo",
+        "Jizzax",
+        "Sirdaryo",
+        "Qoraqalpogʻiston"
+    ];
 
-//     for (let i = 0; i < viloyatlar.length; i++) {
-//         await addressModel.create({name: viloyatlar[i]});
-//     }
-//     return
-// })
+    for (let i = 0; i < viloyatlar.length; i++) {
+        const exists = await addressModel.find({name: viloyatlar[i]});
+        if(!exists) await addressModel.create({name: viloyatlar[i]}); 
+        continue
+    }
+    let find = await addressModel.find({name: viloyatlar[i]});
+    res.status(200).send(find);
+})
 
 routers().forEach(({ url, func }) => {
     app.use("/api/" + url, func);
