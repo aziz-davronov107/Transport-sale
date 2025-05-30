@@ -35,7 +35,7 @@ app.get("/", async (req, res) => {
         if(!exists) await addressModel.create({name: viloyatlar[i]}); 
         continue
     }
-    let find = await addressModel.find({name: viloyatlar[i]});
+    let find = await addressModel.find();
     res.status(200).send(find);
 })
 
